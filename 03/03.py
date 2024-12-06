@@ -1,5 +1,5 @@
 # encoding: utf-8
-# adventofcode 2024 02
+# adventofcode 2024 03
 
 import re
 
