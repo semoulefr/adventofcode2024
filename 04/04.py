@@ -42,6 +42,22 @@ def mirror(puzzle):
     puzzle_mirror.append(line[::-1])
   return(puzzle_mirror)
 
+def count_xmas(puzzle):
+  total = 0
+  puzzle_width = len(puzzle[0])
+  puzzle_length = len(puzzle)
+  for i in range(puzzle_width - 2):
+    for j in range(puzzle_length - 2):
+      if puzzle[i][j] == "M" and puzzle[i+2][j] == "M" and puzzle[i][j+2] == "S" and puzzle[i+2][j+2] == "S" and puzzle[i+1][j+1] == "A":
+        total += 1
+      if puzzle[i][j] == "S" and puzzle[i+2][j] == "S" and puzzle[i][j+2] == "M" and puzzle[i+2][j+2] == "M" and puzzle[i+1][j+1] == "A":
+        total += 1
+      if puzzle[i][j] == "M" and puzzle[i+2][j] == "S" and puzzle[i][j+2] == "M" and puzzle[i+2][j+2] == "S" and puzzle[i+1][j+1] == "A":
+        total += 1
+      if puzzle[i][j] == "S" and puzzle[i+2][j] == "M" and puzzle[i][j+2] == "S" and puzzle[i+2][j+2] == "M" and puzzle[i+1][j+1] == "A":
+        total += 1
+  return(total)
+
 # main
 # load inputs
 filepath = "input.txt"
@@ -57,3 +73,6 @@ total += count_diagonal(puzzle)
 total += count_diagonal(mirror(puzzle))
 
 print("solution part 1, total:", total)
+
+total = count_xmas(puzzle)
+print("solution part 2, total:", total)
