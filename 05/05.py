@@ -6,14 +6,12 @@ def get_middle(update):
 
 def check_update(rules,update):
   total = 0
-  res = 0
   for value in update:
     for rule in rules:
       pos0 = update.index(rule[0]) if rule[0] in update else None
       if pos0 != None:
         if rule[1] in update[0:pos0]:
-          res += 1
-  if res == 0:  
+          return(0)
     total = get_middle(update)
   return total
 
