@@ -85,7 +85,7 @@ def locate_guard():
 
 ## main
 # load inputs
-filepath = "sample.txt"
+filepath = "input.txt"
 lines = []
 with open(filepath) as fp:
   for line in fp:
@@ -93,8 +93,12 @@ with open(filepath) as fp:
 
 # locate guard
 x,y,d = locate_guard()
+visited = [(x,y)]
 
-visited = []
+# let the guard walk until he left the map
 steps = walk(x,y,d)
+
+# get unique visited coordinates
 total = len(set(visited))
+
 print("solution part 1, total:", total, "steps:", steps)
